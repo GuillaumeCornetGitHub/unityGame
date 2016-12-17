@@ -53,6 +53,10 @@ public class PlayerController : MonoBehaviour {
 			try {
 				_energyController.consumeEnergy (_weaponController.energyCost);
 				_weaponController.fire ();
+				_rigidbody.AddForce(
+					_weaponController.forceRecoil * -transform.forward,
+					ForceMode.Impulse
+				);
 			} catch (EnergyException ex) {
 				Debug.Log (ex);
 			}

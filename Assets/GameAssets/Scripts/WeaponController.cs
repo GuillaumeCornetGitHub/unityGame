@@ -8,6 +8,7 @@ public class WeaponController : MonoBehaviour {
 	public float timeBeforeAutoDestruction = 10.0f;
 	public float energyCost;
 	public float damage;
+	public float forceRecoil;
 
 	public GameObject bullet;
 
