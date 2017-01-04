@@ -7,16 +7,13 @@ public class PlayerController : MonoBehaviour {
 
 	public float XSensitivity = 1.2f; 
 	public float torqueForce = 10f;
-	public float brakeTorqueForce = 10f;
+	public float moveForce = 1000f;
 
-	private Quaternion m_CharacterTargetRot;
 	private Transform _transform;
 	private WeaponController _weaponController;
 	private EnergyController _energyController;
-	private float rotateAction;
 	private Rigidbody _rigidbody;
 
-	public float moveForce = 1000f;
 
 	// Use this for initialization
 	void Start () {

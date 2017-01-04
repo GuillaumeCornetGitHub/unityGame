@@ -29,7 +29,7 @@ public class WeaponController : MonoBehaviour {
 			_projectileStart.position, 
 			_transform.rotation
 		);
-		currentBullet.GetComponent<BulletController> ().setDamage (this.damage);
+		currentBullet.GetComponent<BulletController> ().damage = this.damage;
 		currentBullet.GetComponent<Rigidbody> ().AddForce (_transform.forward * 10, ForceMode.Impulse);
 		Destroy (currentBullet, timeBeforeAutoDestruction);
 	}
