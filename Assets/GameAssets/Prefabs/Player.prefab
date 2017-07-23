@@ -16,9 +16,9 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000011816432036}
+  - component: {fileID: 4000011816432036}
   m_Layer: 0
   m_Name: projectileStart
   m_TagString: Untagged
@@ -31,13 +31,13 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000013754903296}
-  - 20: {fileID: 20000010913158664}
-  - 124: {fileID: 124000014129554388}
-  - 92: {fileID: 92000010518364150}
-  - 81: {fileID: 81000010099563638}
+  - component: {fileID: 4000013754903296}
+  - component: {fileID: 20000010913158664}
+  - component: {fileID: 124000014129554388}
+  - component: {fileID: 92000010518364150}
+  - component: {fileID: 81000010099563638}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -50,12 +50,12 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000011679072668}
-  - 33: {fileID: 33000012054595482}
-  - 23: {fileID: 23000012931304026}
-  - 114: {fileID: 114000012917939112}
+  - component: {fileID: 4000011679072668}
+  - component: {fileID: 33000012054595482}
+  - component: {fileID: 23000012931304026}
+  - component: {fileID: 114000012917939112}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Weapon
@@ -68,15 +68,15 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000010529642742}
-  - 33: {fileID: 33000013241873204}
-  - 23: {fileID: 23000013197585458}
-  - 54: {fileID: 54000013811017774}
-  - 136: {fileID: 136000010202060666}
-  - 114: {fileID: 114000011676852860}
-  - 114: {fileID: 114000013696522444}
+  - component: {fileID: 4000010529642742}
+  - component: {fileID: 33000013241873204}
+  - component: {fileID: 23000013197585458}
+  - component: {fileID: 54000013811017774}
+  - component: {fileID: 136000010202060666}
+  - component: {fileID: 114000011676852860}
+  - component: {fileID: 114000013696522444}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -93,12 +93,12 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.062, y: 0.195, z: -4.55}
   m_LocalScale: {x: 1.1346927, y: 0.12997505, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000011679072668}
   - {fileID: 4000013754903296}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4000011679072668
 Transform:
   m_ObjectHideFlags: 1
@@ -108,11 +108,11 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.0000000032831, y: 0.35, z: 0.158}
   m_LocalScale: {x: 0.20594352, y: 1.71821, z: 0.69157207}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000011816432036}
   m_Father: {fileID: 4000010529642742}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4000011816432036
 Transform:
   m_ObjectHideFlags: 1
@@ -122,10 +122,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000011679072668}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4000013754903296
 Transform:
   m_ObjectHideFlags: 1
@@ -135,10 +135,10 @@ Transform:
   m_LocalRotation: {x: 0.053555924, y: 0, z: 0, w: 0.9985649}
   m_LocalPosition: {x: 0, y: 12.4, z: -3.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 6.14, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000010529642742}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 6.14, y: 0, z: 0}
 --- !u!20 &20000010913158664
 Camera:
   m_ObjectHideFlags: 1
@@ -169,6 +169,8 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
+  m_AllowMSAA: 1
+  m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
@@ -187,7 +189,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 99f94a1530da95744a26f19d023b9e57, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -195,12 +199,13 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedWireframeHidden: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23000013197585458
 MeshRenderer:
@@ -216,7 +221,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 41440647f7acd36469bb2e19bbffcd2c, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -224,12 +231,13 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedWireframeHidden: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33000012054595482
 MeshFilter:
@@ -285,9 +293,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d3874d1d5cc5df4dbd887924c59b69b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 100
   XSensitivity: 1.2
   torqueForce: 10
   moveForce: 500
+  life: 100
 --- !u!114 &114000012917939112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -302,9 +312,9 @@ MonoBehaviour:
   _projectileStart: {fileID: 4000011816432036}
   timeBeforeAutoDestruction: 10
   energyCost: 20
-  damage: 0
+  damage: 10
   forceRecoil: 1
-  bullet: {fileID: 0}
+  bullet: {fileID: 1000013706018342, guid: ab45bb6bde9001146a4631997d97967a, type: 2}
 --- !u!114 &114000013696522444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -319,7 +329,7 @@ MonoBehaviour:
   currentEnergy: 0
   energyMax: 100
   energyPerTick: 20
-  timePerTick: 0.5
+  timePerTick: 1
 --- !u!124 &124000014129554388
 Behaviour:
   m_ObjectHideFlags: 1

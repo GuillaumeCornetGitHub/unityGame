@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+using UnityEngine.AI;
 
-public class EnemyController : MonoBehaviour {
+public class EnemyController : GameElement {
 	
 	public Transform playerTransform;
 	public float XSensitivity = 1.2f; 
@@ -12,7 +14,13 @@ public class EnemyController : MonoBehaviour {
 	private WeaponController _weaponController;
 	private EnergyController _energyController;
 	private Rigidbody _rigidbody;
-	private Collider hitCollider;
+    private NavMeshPath _navMeshPath = new NavMeshPath();
+    private Collider hitCollider;
+	private Vector3 newForceMove;
+
+	private float lastFire;
+	private float timeBetweenFire = 1f;
+	private float newTime;
 
 	// Use this for initialization
 	void Start () {
@@ -20,27 +28,44 @@ public class EnemyController : MonoBehaviour {
 		_transform = GetComponent<Transform> ();
 		_weaponController = GetComponentInChildren<WeaponController> ();
 		_energyController = GetComponent<EnergyController> ();
+       
+      
+        lastFire = Time.fixedTime;
 	}
 	void Update() {
+        updateNavMeshAgent();
 		updateWeapon ();
 		updateRotation();
 	}
 
-	// Update is called once per frame
-	void FixedUpdate() {
+    private void updateNavMeshAgent()
+    {
+        NavMesh.CalculatePath(
+            _transform.position, 
+            playerTransform.position, 
+            NavMesh.AllAreas, 
+            _navMeshPath
+       );
+    }
+
+    // Update is called once per frame
+    void FixedUpdate() {
 		updateMove();
 	}
 
 	void updateRotation() {
-		_transform.LookAt (playerTransform.position);
+		_transform.LookAt (_navMeshPath.corners[0]);
 	}
 
 	void updateMove() {
-		Vector3 force = transform.forward * moveForce * Time.fixedDeltaTime;
-		_rigidbody.AddForce (force, ForceMode.Force);
+		newForceMove = transform.forward * moveForce * Time.fixedDeltaTime;
+		_rigidbody.AddForce (newForceMove, ForceMode.Force);
 	}
 
 	void updateWeapon() {
+		newTime = Time.time;
+		if ((Time.time - lastFire) < timeBetweenFire)
+			return;
 
 		RaycastHit hit;
 
@@ -48,32 +73,22 @@ public class EnemyController : MonoBehaviour {
 			if (hit.collider.tag.Equals ("Player")) {
 				
 				this.hitCollider = hit.collider;
-				Gizmos.color = Color.green;
 				try {
 					_energyController.consumeEnergy (_weaponController.energyCost);
-					_weaponController.fire ();
-					_rigidbody.AddForce (
-						_weaponController.forceRecoil * -transform.forward,
-						ForceMode.Impulse
-					);
+					_weaponController.fire ();				
 				} catch (EnergyException ex) {
 					Debug.Log (ex);
 				}
+
 			} 
 		}
 
+		lastFire = Time.time;
 		this.hitCollider = null;
 	}
 
-	void OnDrawGizmosSelected() {
-		if (hitCollider != null) {
-			Gizmos.color = Color.blue;
-			Gizmos.DrawRay (transform.position, hitCollider.transform.position);
-		} else {
-			Gizmos.color = Color.red;
-			Gizmos.DrawRay (transform.position, transform.forward);
-		}
-	}
-
-
+    public override void kill()
+    {
+        Destroy(gameObject);
+    }
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class WeaponController : MonoBehaviour {
 
@@ -11,11 +12,15 @@ public class WeaponController : MonoBehaviour {
 	public float forceRecoil;
 
 	public GameObject bullet;
+    private Collider owner;
 
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
 		_transform = GetComponent <Transform> ();
+        owner = GetComponentInParent<Collider>();
+  
 	}
 	
 	// Update is called once per frame
@@ -29,9 +34,25 @@ public class WeaponController : MonoBehaviour {
 			_projectileStart.position, 
 			_transform.rotation
 		);
-		currentBullet.GetComponent<BulletController> ().damage = this.damage;
-		currentBullet.GetComponent<Rigidbody> ().AddForce (_transform.forward * 10, ForceMode.Impulse);
+
+        BulletController bulletController = currentBullet.GetComponent<BulletController>();
+        bulletController.damage = this.damage;
+        bulletController.owner = this.owner;
+
+		currentBullet.GetComponent<Rigidbody> ().AddForce (
+            _transform.forward * 10, ForceMode.Impulse
+        );
+
+        addRecoil();
+
 		Destroy (currentBullet, timeBeforeAutoDestruction);
 	}
+
+    private void addRecoil() {
+        owner.GetComponent<Rigidbody>().AddForce(
+            this.forceRecoil * -transform.forward,
+            ForceMode.Impulse
+        );
+    }
 
 }

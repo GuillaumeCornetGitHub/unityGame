@@ -23,7 +23,7 @@ GameObject:
   - 23: {fileID: 23000014076932192}
   - 54: {fileID: 54000012047168954}
   - 65: {fileID: 65000011350464324}
-  - 114: {fileID: 114000010687089064}
+  - 114: {fileID: 114000012926469306}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Weapon
@@ -94,7 +94,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!65 &65000011350464324
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -107,7 +107,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.99999994, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114000010687089064
+--- !u!114 &114000012926469306
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -118,4 +118,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3f42e00fb4310245882d3d4578c873d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1000
